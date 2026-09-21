@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Lottie Animations</title>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.12.2/lottie.min.js"></script>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+      color: #111;
+    }
+
+    .page {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 60px 40px;
+    }
+
+    .animations {
+      width: 100%;
+      max-width: 1000px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 60px 50px;
+      justify-items: center;
+    }
+
+    .animation-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .animation-title {
+      margin: 0 0 16px;
+      font-size: 18px;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+    }
+
+    .animation {
+      width: 128px;
+      height: 128px;
+      cursor: pointer;
+    }
+
+    .animation svg {
+      shape-rendering: geometricPrecision;
+    }
+
+    @media (max-width: 900px) {
+      .animations {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .animations {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <main class="page">
+
+    <div class="animations">
+
+      <div class="animation-item">
+        <h2 class="animation-title">Investor Relations</h2>
+        <div class="animation" data-animation="animation1.json"></div>
+      </div>
+
+      <div class="animation-item">
+        <h2 class="animation-title">Corporate Communications</h2>
+        <div class="animation" data-animation="animation2.json"></div>
+      </div>
+
+      <div class="animation-item">
+        <h2 class="animation-title">Sustainability</h2>
+        <div class="animation" data-animation="animation3.json"></div>
+      </div>
+
+      <div class="animation-item">
+        <h2 class="animation-title">Public Relations</h2>
+        <div class="animation" data-animation="animation4.json"></div>
+      </div>
+
+      <div class="animation-item">
+        <h2 class="animation-title">Branding</h2>
+        <div class="animation" data-animation="animation5.json"></div>
+      </div>
+
+      <div class="animation-item">
+        <h2 class="animation-title">Digital Solutions</h2>
+        <div class="animation" data-animation="animation6.json"></div>
+      </div>
+
+    </div>
+
+  </main>
+
+  <script>
+    document.querySelectorAll('.animation').forEach(container => {
+
+      const animation = lottie.loadAnimation({
+        container: container,
+        renderer: 'svg',
+        loop: false,
+        autoplay: false,
+        path: container.dataset.animation
+      });
+
+      container.addEventListener('mouseenter', () => {
+        animation.setDirection(1);
+        animation.play();
+      });
+
+      container.addEventListener('mouseleave', () => {
+        animation.setDirection(-1);
+        animation.play();
+      });
+
+    });
+  </script>
+
+</body>
+</html>
