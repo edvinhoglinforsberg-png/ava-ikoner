@@ -20,7 +20,7 @@
       background: #f5f5f5;
       color: #111;
     }
-    
+
 
     .page {
       min-height: 100vh;
@@ -130,11 +130,15 @@
 
       container.addEventListener('mouseenter', () => {
         animation.setDirection(1);
+          animation.setSpeed(1.2);
+
         animation.play();
       });
 
       container.addEventListener('mouseleave', () => {
         animation.setDirection(-1);
+          animation.setSpeed(1.2);
+
         animation.play();
       });
 
